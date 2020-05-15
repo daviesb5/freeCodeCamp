@@ -8,13 +8,14 @@ function palindrome(str) {
     // Creates "clean" version of original and reversed strings
     for (var i = 0; i < str.length; i++) {
         newChar = str[i];
-        console.log("newChar before edit: " + newChar);
+        // console.log("newChar before edit: " + newChar);
         // uses function to check for letters
         newChar = stringCleaning(newChar);
         // adds newChar to new strings
         pureStr = pureStr + newChar;
         reversedWord = newChar + reversedWord;
-
+        console.log("fl | pureStr: " + pureStr);
+        console.log("fl | reversedWord: " + reversedWord);
     }
     wordMatch = compareWords(pureStr, reversedWord);
     console.log(">>> wordMatch: " + wordMatch);
@@ -22,10 +23,17 @@ function palindrome(str) {
 }
 
 function stringCleaning(thisChar) {
-    var letterRange = /[a-z]/g;
-    var matchLetter = thisChar.match(letterRange);
-    if (matchLetter == thisChar) {
-        // console.log("(+) thisChar: " + thisChar);
+    var lowerCaseLetters = /[a-z]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    var matchLowerCase = thisChar.match(lowerCaseLetters);
+    var matchUpperCase = thisChar.match(upperCaseLetters);
+    // var thisCharLC = thisChar.toLowerCase();
+    // console.log("~thisCharLC: " + thisCharLC);
+    if (thisChar == matchLowerCase) {
+        // console.log("(+) matchLowerCase: " + matchLowerCase);
+        return thisChar;
+    } else if (thisChar == matchUpperCase) {
+        // console.log("(+) matchUpperCase: " + matchUpperCase);
         return thisChar;
     } else {
         // console.log("(-) thisChar: " + thisChar);
@@ -34,8 +42,8 @@ function stringCleaning(thisChar) {
 }
 
 function compareWords(oldWord, newWord) {
-    console.log("oldWord: " + oldWord);
-    console.log("newWord: " + newWord);
+    console.log("pureStr: " + oldWord);
+    console.log("reversedWord: " + newWord);
     if (newWord == oldWord) {
         return true;
     } else {
