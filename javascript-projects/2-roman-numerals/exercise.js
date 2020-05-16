@@ -5,7 +5,7 @@ function convertToRoman(num) {
     var romanNumerals = "";
     var nthPower = 0;
     for (var i = 0; i < arabicNumerals.length; i++){
-      console.log("num: " + num);
+      // console.log("num: " + num);
       // if (arabicNumerals[i] == "0"){
       //   console.log(">>> arabicNumerals[i]: " + arabicNumerals);
       //   return "";
