@@ -1,27 +1,24 @@
 function convertToRoman(num) {
-  console.log("num: " + num);
+  console.log("~num: " + num);
+  // variables
   var arabicNumerals = num.toString();
   var arabicDigits = [];
   var curRomanNumeral = "";
   var romanNumerals = "";
   var nthPower = 0;
-  for (var i = 0; i < arabicNumerals.length; i++){
-    console.log("num: " + num);
-    // if (arabicNumerals[i] == "0"){
-    //   console.log(">>> arabicNumerals[i]: " + arabicNumerals);
-    //   return "";
-    // }
-    // 10^0 = 1, 10^1 = 10, 10^2 = 100
+  // splits #s into digits & converts whole #s
+  for (var i = (arabicNumerals.length - 1); i >= 0; i--){
+    console.log("i: " + i);
     console.log("nthPower: " + nthPower);
-    // function for numeral conversion
+    console.log("arabicNumerals[i]: " + arabicNumerals[i]);
     curRomanNumeral = arabicToRoman(arabicNumerals[i], nthPower);
+    // updates roman #, starting @ ones place
     romanNumerals = romanNumerals + curRomanNumeral;
-    nthPower++;
+    console.log("curRomanNumeral: " + curRomanNumeral);
+    console.log("romanNumerals: " + romanNumerals);
   }
- return romanNumerals;
+  return romanNumerals;
 }
-
-convertToRoman(2);
 
 function arabicToRoman(modernNum, nthPower){
   var newDigit = "";
@@ -89,9 +86,11 @@ function tensPlace(thisDigit){
   } else if (thisDigit == "70"){
     newRomanNumeral = "LXX"
   } else if (thisDigit == "80"){
-    newRomanNumeral = "VIII"
+    newRomanNumeral = "LXXX"
   } else if (thisDigit == "90"){
-    newRomanNumeral = "IX"
+    newRomanNumeral = "XC"
   }
   return newRomanNumeral;
 }
+
+convertToRoman(36);
