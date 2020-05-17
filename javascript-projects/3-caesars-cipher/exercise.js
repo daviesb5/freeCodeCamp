@@ -5,8 +5,7 @@ function rot13(str) {
     var newChar = "";
     var normalArray = [];
     var cipherArray = [];
-    // references function for arrays
-    setArrays(normalArray, cipherArray);
+    // setArrays(normalArray, cipherArray);
     // cycles through characters
     for (var i = 0; i < str.length; i++){
       curChar = str[i];
@@ -17,6 +16,7 @@ function rot13(str) {
     return str;
   }
   
+  /*
   // Sets arrays to a-z and A-Z
   function setArrays(normalArray, cipherArray){
     // variables
@@ -40,9 +40,25 @@ function rot13(str) {
       console.log("normalArray[i]: " + normalArray[i]);
     }
   }
+  */
   
   function convertChar(thisChar){
-    
+    // variables
+    var cipherDif = 13;
+    var reroundChar = 25;
+    var upperCaseMax = 90;
+    var oldNumCode = 0;
+    var newNumCode = 0;
+    // conversion
+    oldNumCode = thisChar.charCodeAt(0);
+    console.log("oldNumCode: " + oldNumCode);
+    // stays within ASCII Characters 65-90
+    if (oldNumCode <= upperCaseMax){
+      numCode = numCode;
+    } else {
+      numCode = numCode - reroundChar;
+    }
+    console.log("new numCode: " + numCode);
   }
   
   rot13("SERR PBQR PNZC");
