@@ -7,17 +7,37 @@ function convertToRoman(num) {
   var romanNumerals = "";
   var nthPower = 0;
   // splits #s into digits & converts whole #s
-  for (var i = (arabicNumerals.length - 1); i >= 0; i--){
-    console.log("i: " + i);
-    console.log("nthPower: " + nthPower);
-    console.log("arabicNumerals[i]: " + arabicNumerals[i]);
+  for (var i = (arabicNumerals.length - 1); i >= 0; i--, nthPower++){
+    // console.log("i: " + i);
+    // console.log("nthPower: " + nthPower);
+    // console.log("arabicNumerals[i]: " + arabicNumerals[i]);
+    // var isZero = checkForZero(arabicNumerals[i]);
+    // if (isZero == False){
+    //   curRomanNumeral = arabicToRoman(arabicNumerals[i], nthPower);
+    // } else {
+    //   curRomanNumeral = "";
+    // }
     curRomanNumeral = arabicToRoman(arabicNumerals[i], nthPower);
+    // console.log("> romanNumerals: " + romanNumerals);
+    // console.log("> curRomanNumeral: " + curRomanNumeral);
     // updates roman #, starting @ ones place
-    romanNumerals = romanNumerals + curRomanNumeral;
-    console.log("curRomanNumeral: " + curRomanNumeral);
+    romanNumerals = curRomanNumeral + romanNumerals;
+    // console.log("curRomanNumeral: " + curRomanNumeral);
     console.log("romanNumerals: " + romanNumerals);
   }
+  console.log(">>> final romanNumerals: " + romanNumerals);
   return romanNumerals;
+}
+
+// checks for 0
+function checkForZero(modernNum){
+  if (modernNum == "0"){
+    return True;
+  } else if (modernNum == 0){
+    return True;
+  } else {
+    return False;
+  }
 }
 
 function arabicToRoman(modernNum, nthPower){
@@ -42,6 +62,7 @@ function arabicToRoman(modernNum, nthPower){
   } else {
     alert("Not a valid number");
   }
+  console.log ("newRomanNumeral: " + newRomanNumeral);
   return newRomanNumeral;
 }
 
@@ -89,6 +110,54 @@ function tensPlace(thisDigit){
     newRomanNumeral = "LXXX"
   } else if (thisDigit == "90"){
     newRomanNumeral = "XC"
+  }
+  return newRomanNumeral;
+}
+
+function hundredsPlace(thisDigit){
+  var newRomanNumeral = "";
+  if (thisDigit == "100"){
+    newRomanNumeral = "C"
+  } else if (thisDigit == "200"){
+    newRomanNumeral = "CC"
+  } else if (thisDigit == "300"){
+    newRomanNumeral = "CCC"
+  } else if (thisDigit == "400"){
+    newRomanNumeral = "CD"
+  } else if (thisDigit == "500"){
+    newRomanNumeral = "D"
+  } else if (thisDigit == "600"){
+    newRomanNumeral = "DC"
+  } else if (thisDigit == "700"){
+    newRomanNumeral = "DCC"
+  } else if (thisDigit == "800"){
+    newRomanNumeral = "DCCC"
+  } else if (thisDigit == "900"){
+    newRomanNumeral = "CM"
+  }
+  return newRomanNumeral;
+}
+
+function thousandsPlace(thisDigit){
+  var newRomanNumeral = "";
+  if (thisDigit == "1000"){
+    newRomanNumeral = "M"
+  } else if (thisDigit == "2000"){
+    newRomanNumeral = "MM"
+  } else if (thisDigit == "3000"){
+    newRomanNumeral = "MMM"
+  } else if (thisDigit == "4000"){
+    newRomanNumeral = "MV̄"
+  } else if (thisDigit == "5000"){
+    newRomanNumeral = "V̄"
+  } else if (thisDigit == "6000"){
+    newRomanNumeral = "V̄M"
+  } else if (thisDigit == "7000"){
+    newRomanNumeral = "V̄MM"
+  } else if (thisDigit == "8000"){
+    newRomanNumeral = "V̄MMM"
+  } else if (thisDigit == "9000"){
+    newRomanNumeral = "MX̄"
   }
   return newRomanNumeral;
 }
