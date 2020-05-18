@@ -10,7 +10,7 @@ function rot13(str) {
     for (var i = 0; i < str.length; i++){
       curChar = str[i];
       console.log("curChar: " + curChar);
-      newChar = convertChar(curChar);
+      newChar = checkForLetters(curChar);
       console.log("newChar: " + newChar);
     }
     return str;
@@ -43,22 +43,46 @@ function rot13(str) {
   */
   
   function convertChar(thisChar){
+    // check for A-Z range
+    var isLetter = checkForLetters(thisChar);
+    if (isLetter == true){
+      
+    }
     // variables
     var cipherDif = 13;
-    var reroundChar = 25;
+    var reroundChar = 26;
+    var upperCaseMin = 65;
     var upperCaseMax = 90;
     var oldNumCode = 0;
     var newNumCode = 0;
+    var numCode = "";
     // conversion
     oldNumCode = thisChar.charCodeAt(0);
     console.log("oldNumCode: " + oldNumCode);
+    newNumCode = oldNumCode - cipherDif;
+    console.log("newNumCode: " + newNumCode);
     // stays within ASCII Characters 65-90
-    if (oldNumCode <= upperCaseMax){
+    if (oldNumCode >= upperCaseMin){
       numCode = numCode;
+      console.log("(+) numCode: " + numCode);
     } else {
-      numCode = numCode - reroundChar;
+      numCode = numCode + reroundChar;
+      console.log("(!) numCode: " + numCode);
     }
-    console.log("new numCode: " + numCode);
+  }
+  
+  function checkForLetters(thisChar){
+    var isTrue = Boolean(false);
+    var curChar = thisChar;
+    var letterRange = /[A-Z]/g;
+    var matchLetter = curChar.match(letterRange);
+    // returns true or false
+    if (curChar == matchLetter){
+      isTrue = true;
+    } else {
+      isTrue = false;
+    }
+    console.log("isTrue: " + isTrue);
   }
   
   rot13("SERR PBQR PNZC");
