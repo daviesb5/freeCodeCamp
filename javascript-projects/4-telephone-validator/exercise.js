@@ -3,12 +3,25 @@ function telephoneCheck(str) {
     // sets value to false by default
     var isValid = Boolean(false);
     var newPhone = "";
+    isValid = searchPhoneNumber(str);
+    /*
     //sorts number
     newPhone = reformatPhoneNum(str);
     //evaluates reformated number
     isValid = phoneNumResult(str);
+    */
     // returns value
     return isValid;
+  }
+  
+  // search phone number
+  function searchPhoneNumber(curPhoneNum){
+    var curChar = "";
+    let pair1 = ["(", ")"];
+    let pair2 = ["-", "-"];
+    for (var i = 0; i < curPhoneNum.length; i++){
+      // stuff goes here
+    }
   }
   
   // formats telephone number
@@ -41,9 +54,11 @@ function telephoneCheck(str) {
   //
   function phoneNumResult(newPhoneNum){
     //checks length
-    if (newPhoneNum.length < 7){
-      return false;
-    } else if (newPhoneNum.length < 7)
+    // if (newPhoneNum.length < 7){
+    //   return false;
+    // } else if {
+      
+    // }
   }
   
   // input
